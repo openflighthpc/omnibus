@@ -58,6 +58,7 @@ module Omnibus
   autoload :Publisher,        "omnibus/publisher"
   autoload :Reports,          "omnibus/reports"
   autoload :S3Cache,          "omnibus/s3_cache"
+  autoload :Stripper,         "omnibus/stripper"
   autoload :Software,         "omnibus/software"
   autoload :Templating,       "omnibus/templating"
   autoload :ThreadPool,       "omnibus/thread_pool"

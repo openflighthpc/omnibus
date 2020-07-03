@@ -802,6 +802,23 @@ module Omnibus
     expose :text_manifest_path
 
     #
+    # Method to enable whether or not a build should be stripped.
+    #
+    # @example
+    #   strip_build = true
+    #
+    # @return [String]
+    #
+    def strip_build(val = true)
+      if null?(val)
+        @strip_build || false
+      else
+        @strip_build = val
+      end
+    end
+    expose :strip_build
+
+    #
     # @!endgroup
     # --------------------------------------------------
 
@@ -1085,6 +1102,7 @@ module Omnibus
       write_json_manifest
       write_text_manifest
       HealthCheck.run!(self)
+      Stripper.run!(self) if strip_build
       package_me
       compress_me
     end
